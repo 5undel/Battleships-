@@ -14,4 +14,3 @@ if __name__ == "__main__":
     xstr, ystr = inp.split(",")
     x = int(xstr)
     y = int(ystr)
-   
