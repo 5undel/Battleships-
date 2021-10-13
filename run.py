@@ -1,6 +1,25 @@
 class Battleship(object):
 
-    def __init__(self)
+    @staticmethod
+    def build(head, length, direction):
+        body = []
+        for i in range(length):
+            if direction == "N":
+                el =(head[0], head[1] - i)
+            elif direction == "S":
+                el =(head[0], head[1] + i)
+            elif direction == "E":
+                el =(head[0] - i, head[1])
+            elif direction == "W":
+                el =(head[0] + i, head[1])
+
+            body.append(el)
+
+        return Battleship(body)
+
+    def __init__(self, body):
+        self.body = body
+
 
 # Game board layout
 def render(board_width, board_height, shots):
@@ -21,6 +40,19 @@ def render(board_width, board_height, shots):
     print(header)
     
 if __name__ == "__main__":
+    Battleship = [
+        Battleship.build((1,1), 2, "N" ),
+        Battleship.build((3,5), 3, "S" ),
+        Battleship.build((7,2), 4, "E" )
+    ]
+
+    for b in Battleship:
+        print(b.body)
+
+    exit(0)
+
+
+
     shots = []
 
     while True:
