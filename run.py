@@ -60,8 +60,6 @@ def check_shot(shot,boat1,boat2,hit,miss,comp):
 
     return boat1,boat2,hit,miss,comp
 
-    
-
 boat1 = [45,46,47]
 boat2 = [6,16,26]
 hit = []
