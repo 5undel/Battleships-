@@ -142,3 +142,5 @@ for i in range(50):
     ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
     show_board(hit,miss,comp)
 
+
+
