@@ -1,7 +1,7 @@
 
 # Computer random for boat
 from random import randrange
-
+import random
 def check_ok(boat,taken):
 
     for i in range(len(boat)):
@@ -79,13 +79,16 @@ def show_board_c(taken):
             place = place + 1
         print(x, " ", row)
 # get shots function 
-def get_shot_comp(guesses):
+def get_shot_comp(guesses, tactics):
 
     print("Add a number between 0 and 99")
     ok = "n"
     while ok == "n":
         try:
-            shot = randrange(99)
+            if len(tactics) > 0:
+                shot = tactics[0]
+            else:
+                shot = randrange(99)
             if shot not in guesses:
                 ok = "y"
                 guesses.append(shot)
@@ -119,20 +122,34 @@ def show_board(hit,miss,comp):
 
 def check_shot(shot,ships,hit,miss,comp):
     
-    missed = 1
+    missed = 0
     for i in range(len(ships)):
 
         if shot in ships[i]:
             ships[i].remove(shot)
-            missed = 0
             if len(ships[i]) > 0:
                 hit.append(shot)
+                missed = 1
             else:
                 comp.append(shot)
-    if missed == 1:
+                missed = 2
+    if missed == 0:
         miss.append(shot)
 
-    return ships,hit,miss,comp
+    return ships,hit,miss,comp,missed
+def calc_tactics(shot,tactics,guesses):
+
+    temp = []
+    if len(tactics) < 1:
+        temp = [shot-1,shot+1,shot-10,shot+10]
+
+    cand = []
+    for i in range(len(temp)):
+        if temp[i] not in guesses and temp[i] < 100 and temp[i] > -1:
+            cand.append(temp[i])
+    random.shuffle(cand)
+
+    return cand
 
 hit = []
 miss = []
@@ -140,12 +157,21 @@ comp = []
 guesses = []
 ships, taken = create_boates()
 show_board_c(taken)
+tactics = []
+
 
 # function for the computer shots count
-for i in range(50):
-    shot,guesses = get_shot_comp(guesses)
-    ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
+for i in range(10):
+    shot,guesses = get_shot_comp(guesses, tactics)
+    ships,hit,miss,comp,missed = check_shot(shot,ships,hit,miss,comp)
     show_board(hit,miss,comp)
+    if missed == 1:
+        tactics = calc_tactics(shot,tactics,guesses)
+    elif missed == 2:
+        tactics = []
+    elif len(tactics) > 0:
+        tactics.pop(0)
+
 
 
 
