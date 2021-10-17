@@ -88,6 +88,9 @@ def get_shot_comp(guesses):
                 ok = "y"
                 guesses.append(shot)
                 break
+            
+        except:
+            print("inccorrect entry - please enter again!!")
     return shot,guesses
 
 def show_board(hit,miss,comp):
@@ -113,7 +116,8 @@ def show_board(hit,miss,comp):
 def check_shot(shot,ships,hit,miss,comp):
     
     missed = 1
-    for in range(len(ships)):
+    for i in range(len(ships)):
+
         if shot in ships[i]:
             ships[i].remove(shot)
             missed = 0
@@ -126,16 +130,15 @@ def check_shot(shot,ships,hit,miss,comp):
 
     return ships,hit,miss,comp
 
-boat1 = [45,46,47]
-boat2 = [6,16,26]
-
 hit = []
 miss = []
 comp = []
 guesses = []
 ships, taken = create_boates()
-show_board(taken)
-shot,guesses = get_shot_comp(guesses)
-ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
-show_board(hit,miss,comp)
+show_board_c(taken)
+
+for i in range(50):
+    shot,guesses = get_shot_comp(guesses)
+    ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
+    show_board(hit,miss,comp)
 
