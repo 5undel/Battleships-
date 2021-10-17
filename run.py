@@ -1,22 +1,94 @@
-def get_shot(guesses):
+from random import randrange
+
+def check_ok(boat,taken):
+
+    for i in range(len(boat)):
+        num = boat[i]
+        if num in taken:
+            boat = [-1]
+            break
+        elif num < 0 or num > 99:
+            boat = [-1]
+            break
+        elif num % 10 == 9 and i < len(boat) - 1:
+            if boat[i+1] % 10 == 0:
+                boat = [-1]
+                break
+
+
+    return boat
+
+def check_boat(b, start,dirn,taken):
+
+    
+    boat = []
+    if dirn == 1:
+        for i in range(b):
+            boat.append(start - i*10)
+            boat = check_ok(boat,taken)
+    elif dirn == 2:
+        for i in range(b):
+            boat.append(start + i)
+            boat = check_ok(boat,taken)
+    elif dirn == 3:
+        for i in range(b):
+            boat.append(start + i*10)
+            boat = check_ok(boat,taken)
+    elif dirn == 4:
+        for i in range(b):
+            boat.append(start - i)
+            boat = check_ok(boat,taken)
+    return boat
+
+def create_boates():
+    taken = []
+    ships = []
+    boats = [5,4,3,3,2,2]
+    for b in boats:
+        boat = [-1]
+        while boat[0] == -1:
+            boat_start = randrange(99)
+            boat_direction = randrange(1,4)
+            print(b,boat_start,boat_direction)
+            boat = check_boat(b,boat_start,boat_direction,taken)
+        ships.append(boat)
+        taken = taken + boat
+        print(ships)
+
+    return ships,taken
+
+def show_board_c(taken):
+    print("      BATTLESHIP")
+    print("     0  1  2  3  4  5  6  7  8  9")
+
+
+    place = 0
+    for x in range(10):
+        row = ""
+        for y in range(10):
+            ch = " _ "
+            if place in hit:
+                ch ="💥 "
+            elif place in miss:
+                ch =" x "
+            elif place in comp:
+                ch ="💀 "
+            row = row + ch
+            place = place + 1
+        print(x, " ", row)
+
+def get_shot_comp(guesses):
 
     print("Add a number between 0 and 99")
     ok = "n"
     while ok == "n":
         try:
-            shot = input("Take your shot:\n")
-            shot = int(shot)
-            if shot < 0 or shot > 99:
-                print("incorrect number, please try again!")
-            elif shot in guesses:
-                print("incorrect number, used before!")
-            else:
+            shot = randrange(99)
+            if shot not in guesses:
                 ok = "y"
+                guesses.append(shot)
                 break
-        except:
-            print("incorrect entry - please enter again!")
-    return shot
-    
+    return shot,guesses
 
 def show_board(hit,miss,comp):
     print("      BATTLESHIP")
@@ -38,41 +110,32 @@ def show_board(hit,miss,comp):
             place = place + 1
         print(x, " ", row)
 
-
-def check_shot(shot,boat1,boat2,hit,miss,comp):
-
-    if shot in boat1:
-        boat1.remove(shot)
-        if len(boat1) > 0:
-            hit.append(shot)
-        else:
-            comp.append(shot)
-
-    elif shot in boat2:
-        boat2.remove(shot)
-        if len(boat2) > 0:
-            hit.append(shot)
-        else:
-            comp.append(shot)
-
-    else:
+def check_shot(shot,ships,hit,miss,comp):
+    
+    missed = 1
+    for in range(len(ships)):
+        if shot in ships[i]:
+            ships[i].remove(shot)
+            missed = 0
+            if len(ships[i]) > 0:
+                hit.append(shot)
+            else:
+                comp.append(shot)
+    if missed == 1:
         miss.append(shot)
 
-    return boat1,boat2,hit,miss,comp
+    return ships,hit,miss,comp
 
 boat1 = [45,46,47]
 boat2 = [6,16,26]
+
 hit = []
 miss = []
 comp = []
+guesses = []
+ships, taken = create_boates()
+show_board(taken)
+shot,guesses = get_shot_comp(guesses)
+ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
+show_board(hit,miss,comp)
 
-for i in range(10):
-    guesses = hit + miss + comp
-    shot = get_shot(guesses)
-    boat1,boat2,hit,miss,comp = check_shot(shot,boat1,boat2,hit,miss,comp)
-    show_board(hit,miss,comp)
-
-    if len(boat1) < 1 and len(boat2) < 1:
-        print("You've won the game!!!")
-        break
-print("finished")
