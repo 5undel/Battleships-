@@ -1,3 +1,5 @@
+
+# Computer random for boat
 from random import randrange
 
 def check_ok(boat,taken):
@@ -17,7 +19,7 @@ def check_ok(boat,taken):
 
 
     return boat
-
+# computer boat range and med the computer not to overlap the boats
 def check_boat(b, start,dirn,taken):
 
     
@@ -39,7 +41,7 @@ def check_boat(b, start,dirn,taken):
             boat.append(start - i)
             boat = check_ok(boat,taken)
     return boat
-
+# Create the boats fot computer
 def create_boates():
     taken = []
     ships = []
@@ -56,7 +58,7 @@ def create_boates():
         print(ships)
 
     return ships,taken
-
+# show the boats on the board
 def show_board_c(taken):
     print("      BATTLESHIP")
     print("     0  1  2  3  4  5  6  7  8  9")
@@ -76,7 +78,7 @@ def show_board_c(taken):
             row = row + ch
             place = place + 1
         print(x, " ", row)
-
+# get shots function 
 def get_shot_comp(guesses):
 
     print("Add a number between 0 and 99")
@@ -93,6 +95,7 @@ def get_shot_comp(guesses):
             print("inccorrect entry - please enter again!!")
     return shot,guesses
 
+# show the hit,miss marker on the board
 def show_board(hit,miss,comp):
     print("      BATTLESHIP")
     print("     0  1  2  3  4  5  6  7  8  9")
@@ -112,6 +115,7 @@ def show_board(hit,miss,comp):
             row = row + ch
             place = place + 1
         print(x, " ", row)
+
 
 def check_shot(shot,ships,hit,miss,comp):
     
@@ -137,6 +141,7 @@ guesses = []
 ships, taken = create_boates()
 show_board_c(taken)
 
+# function for the computer shots count
 for i in range(50):
     shot,guesses = get_shot_comp(guesses)
     ships,hit,miss,comp = check_shot(shot,ships,hit,miss,comp)
