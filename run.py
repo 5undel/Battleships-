@@ -39,7 +39,7 @@ def show_board(hit,miss,comp):
         print(x, " ", row)
 
 
-def check_shot(shot,boat1,hit,miss,comp):
+def check_shot(shot,boat1,boat2,hit,miss,comp):
 
     if shot in boat1:
         boat1.remove(shot)
@@ -48,10 +48,17 @@ def check_shot(shot,boat1,hit,miss,comp):
         else:
             comp.append(shot)
 
+    elif shot in boat2:
+        boat2.remove(shot)
+        if len(boat2) > 0:
+            hit.append(shot)
+        else:
+            comp.append(shot)
+
     else:
         miss.append(shot)
 
-    return boat1,hit,miss,comp
+    return boat1,boat2,hit,miss,comp
 
     
 
@@ -67,7 +74,7 @@ for i in range(10):
     boat1,boat2,hit,miss,comp = check_shot(shot,boat1,boat2,hit,miss,comp)
     show_board(hit,miss,comp)
 
-    if len(boat1) < 1 and boat2:
+    if len(boat1) < 1 and len(boat2) < 1:
         print("You've won the game!!!")
         break
 print("finished")
