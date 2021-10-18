@@ -29,6 +29,7 @@ def get_ship(long, taken):
     while ok:      
         ship = []
         #ask the user to enter numbers
+
         print("Welcome to Battleship")
         print("Add a number beteewn 1 and 99")
         print("Enter your ship of length ", long)
