@@ -23,6 +23,16 @@ def check_ok(boat, taken):
 
     return boat
 
+print("Welcome to Battleship")
+print("Add a number beteewn 1 and 99\n")
+print(" ")
+print("Can you beat the computer?")
+print(" ")
+print("💥= hit")
+print("💀 = destroyed")
+print(" x = miss")
+print(" ")
+
 def get_ship(long, taken):
 
     ok = True
@@ -30,11 +40,9 @@ def get_ship(long, taken):
         ship = []
         #ask the user to enter numbers
 
-        print("Welcome to Battleship")
-        print("Add a number beteewn 1 and 99")
         print("Enter your ship of length ", long)
         for i in range(long):
-            boat_num = input("please enter a number")
+            boat_num = input("please enter a number\n")
             ship.append(int(boat_num))       
         #check that ship
         ship = check_ok(ship, taken)
@@ -97,7 +105,7 @@ def show_board_c(taken):
     print("💥= hit")
     print("💀 = destroyed")
     print("x = miss")
-    print("            battleships    ")
+    print("        battleships    ")
     print("     0  1  2  3  4  5  6  7  8  9")
 
     place = 0
@@ -131,7 +139,7 @@ def get_shot_comp(guesses, tactics):
     return shot,guesses
 # game board
 def show_board(hit, miss, comp):
-    print("            battleships    ")
+    print("      battleships    ")
     print("     0  1  2  3  4  5  6  7  8  9")
 
     place = 0
