@@ -56,7 +56,7 @@ def create_ships(taken, boats):
         ships.append(ship)
 
     return ships, taken
-
+# ship direction and empty space for boat
 def check_boat(b, start, dirn, taken):
 
     boat = []
