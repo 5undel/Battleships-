@@ -1,6 +1,6 @@
 from random import randrange
 import random
-
+# Check the placing of boat to grid 
 def check_ok(boat, taken):
 
     boat.sort()
@@ -45,7 +45,7 @@ def get_ship(long, taken):
            print("Error - please try again") 
 
     return ship, taken
-
+# creake the ships
 def create_ships(taken, boats):
 
     ships = []
