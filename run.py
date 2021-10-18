@@ -91,7 +91,7 @@ def create_boats(taken, boats):
         # print(ships)
 
     return ships, taken
-
+# show the user hit, miss, destroy w. playing
 def show_board_c(taken):
     print(" ")
     print("💥= hit")
