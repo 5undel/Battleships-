@@ -119,7 +119,7 @@ def show_board(hit,miss,comp):
             place = place + 1
         print(x, " ", row)
 
-
+# hot function - to track the shot and change the board
 def check_shot(shot,ships,hit,miss,comp):
     
     missed = 0
@@ -137,6 +137,8 @@ def check_shot(shot,ships,hit,miss,comp):
         miss.append(shot)
 
     return ships,hit,miss,comp,missed
+
+# calculate shot base of hit or miss for the computer
 def calc_tactics(shot,tactics,guesses,hit):
 
     temp = []
@@ -164,7 +166,6 @@ miss = []
 comp = []
 guesses = []
 ships, taken = create_boates()
-show_board_c(taken)
 tactics = []
 
 
@@ -172,7 +173,7 @@ tactics = []
 for i in range(10):
     shot,guesses = get_shot_comp(guesses, tactics)
     ships,hit,miss,comp,missed = check_shot(shot,ships,hit,miss,comp)
-    show_board(hit,miss,comp)
+  
     if missed == 1:
         tactics = calc_tactics(shot,tactics,guesses,hit)
     elif missed == 2:
@@ -180,6 +181,7 @@ for i in range(10):
     elif len(tactics) > 0:
         tactics.pop(0)
 
-
+show_board_c(taken)
+show_board(hit,miss,comp)
 
 
