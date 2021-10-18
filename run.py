@@ -129,7 +129,7 @@ def get_shot_comp(guesses, tactics):
             print("incorrect entry - please enter again")
 
     return shot,guesses
-
+# game board
 def show_board(hit, miss, comp):
     print("            battleships    ")
     print("     0  1  2  3  4  5  6  7  8  9")
