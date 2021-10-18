@@ -166,7 +166,7 @@ def check_shot(shot, ships, hit, miss, comp):
         miss.append(shot)
 
     return ships, hit, miss, comp, missed
-
+# tactics for computer after hiting first shot on targit
 def calc_tactics(shot, tactics, guesses, hit):
 
     temp = []
