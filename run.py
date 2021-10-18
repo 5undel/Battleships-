@@ -74,7 +74,7 @@ def check_boat(b, start, dirn, taken):
             boat.append(start - i)
     boat = check_ok(boat, taken)           
     return boat  
-
+# computer creak placing of boat on board
 def create_boats(taken, boats):
 
     ships = []
