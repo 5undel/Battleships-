@@ -205,7 +205,7 @@ def calc_tactics(shot, tactics, guesses, hit):
     random.shuffle(cand)
 
     return cand
-
+# users input for guessing the tagit loca.
 def get_shot(guesses):
 
     ok = "n"
