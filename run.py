@@ -111,7 +111,7 @@ def show_board_c(taken):
             place = place + 1
 
         print(x, " ", row)
-
+# computer shot function
 def get_shot_comp(guesses, tactics):
 
     ok = "n"
