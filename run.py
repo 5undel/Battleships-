@@ -28,7 +28,6 @@ def check_ok(boat, taken):
 
 # before the game starts
 print("Welcome to Battleship")
-print("Add a number beteewn 1 and 99\n")
 print(" ")
 print("Can you beat the computer?")
 print(" ")
@@ -38,7 +37,11 @@ print(" x = miss")
 print(" ")
 
 # def change_game_board():
-
+print("When you add the number for the ships")
+print("For example:")
+print("ship of 5 numbers - 1,2,3,4,5")
+print("ship of 4 numbers - 34,35,36,37")
+print(" ")
 
 def get_ship(long, taken):
     ok = True
@@ -46,7 +49,7 @@ def get_ship(long, taken):
         ship = []
         # ask the user to enter numbers
 # clearer directives on how user should create ship <---
-        print("Enter your ship of length ", long)
+        print("Enter your ship length of ", long)
         for i in range(long):
             boat_num = input("please enter a number\n")
             ship.append(int(boat_num))
@@ -57,7 +60,7 @@ def get_ship(long, taken):
             break
         else:
             print("Error - please try again")
-
+            
     return ship, taken
 
 
@@ -98,7 +101,7 @@ def check_boat(b, start, dirn, taken):
 def create_boats(taken, boats):
 
     ships = []
-    # boats = [5,4,3,3,2,2]
+    boats = [5, 4, 3, 3, 2, 2]
     for b in boats:
         boat = [- 1]
         while boat[0] == -1:
@@ -297,7 +300,7 @@ for i in range(80):
     show_board(hit1, miss1, comp1)
     # repeat until ships empty
     if check_if_empty_2(ships1):
-        print("end of game - winner in", i)
+        print("end of game -You winner in", i)
         break
     # computer shoots
 
