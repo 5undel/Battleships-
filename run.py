@@ -42,16 +42,17 @@ print("For example:")
 print("ship of 5 numbers - 1,2,3,4,5")
 print("ship of 4 numbers - 34,35,36,37")
 print(" ")
+print("Begin with the number for the colum and then the number for row")
+
 
 def get_ship(long, taken):
     ok = True
     while ok:
         ship = []
-        # ask the user to enter numbers
-# clearer directives on how user should create ship <---
+        # ask the user to enter numbers for the ship placing
         print("Enter your ship length of ", long)
         for i in range(long):
-            boat_num = input("please enter a number\n")
+            boat_num = input("please enter a number between 0 and 99\n")
             ship.append(int(boat_num))
         # check that ship
         ship = check_ok(ship, taken)
@@ -60,7 +61,7 @@ def get_ship(long, taken):
             break
         else:
             print("Error - please try again")
-            
+
     return ship, taken
 
 
@@ -68,7 +69,7 @@ def get_ship(long, taken):
 def create_ships(taken, boats):
 
     ships = []
-    # boats = [5,4,3,3,2,2]
+    boats = [5, 4, 3, 3, 2, 2]
 
     for boat in boats:
         ship, taken = get_ship(boat, taken)
@@ -172,7 +173,7 @@ def show_board(hit, miss, comp):
             if place in miss:
                 ch = " x "
             elif place in hit:
-                ch = "💥 "
+                ch = " 💥"
             elif place in comp:
                 ch = "💀 "
             row = row + ch
