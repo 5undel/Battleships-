@@ -1,10 +1,8 @@
-# Love Sandwiches
+# Battleship 
 
-Love Sandwiches is a command-line based Python program to handle data automation for a sandwich company. Love Sandwiches runs a local market stall, selling a small range of sandwiches. For each market day, the staff pre-make stock to sell. If they sell out of a particular sandwich, the staff make extra for their customers, unsold sandwiches are thrown away at the end of the day.
+Battleship is a is a strategy type guessing game.It is played on ruled grids board on which the user's fleet of ships are marked. The locations of the fleets are concealed from the computer. User and computer alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the computers fleet.
 
-Love Sandwiches will collect the company's market day sales data,  calculate the surplus for the day, and produce recommendations for the number of each sandwich to make for the next market. The goal is to save the company staff time by automating a repetitive task and help reduce the surplus by better predicting sales for future markets. To achieve this, we will wire up our Python program to interact with a Google Sheet, so that we can push and pull data to and from the spreadsheet.
-
-<insert screenshot of application from amiresponsive website> http://ami.responsivedesign.is/
+![image](doc/screens.png)
 
 ## Features 
 
@@ -18,7 +16,7 @@ Featured at the top of the page,
 
 __ The Terminal Area  __
 
-In this section, the program will request the market day sales data from our user,  and then check if the data provided is valid.  If it isn't, the data will be requested again. Once the data is confirmed as valid, the rest of the program will run to add the sales data to the sales worksheet, calculate and update the surplus data, calculate the sales averages and make stock recommendations. 
+
 
 (screenshot of terminal)
 
@@ -30,7 +28,7 @@ __ The Program Structure __
 
 ### Features Left to Implement
 
-- Another feature idea that I can add 
+- Another feature idea that I can add is to show the user how meny shots the user has left.
 
 ## Testing 
 
@@ -57,7 +55,15 @@ After checking the Python code for PEP8 requirements, no errors were found
 
 ### Responsivenes
 
-(screenshot of the game on desktop, tablet, and mobile, include from your phone if possible)
+    - Desktop
+![image](doc/firefox.png)
+
+    - Tablet
+![image](doc/tablet.png)
+
+    - Mobile
+![image](doc/mobile.jpg)
+
 
 ### Unfixed Bugs
 
