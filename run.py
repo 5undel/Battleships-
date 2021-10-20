@@ -173,9 +173,9 @@ def show_board(hit, miss, comp):
             if place in miss:
                 ch = " x "
             elif place in hit:
-                ch = " 💥"
+                ch = " 💥 "
             elif place in comp:
-                ch = "💀 "
+                ch = " 💀 "
             row = row + ch
             place = place + 1
 
