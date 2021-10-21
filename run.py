@@ -61,7 +61,7 @@ def get_ship(long, taken):
                 taken = taken + ship
                 break
         except:
-            print("Error - please try again")
+            print("Incorrect entry - please try again")
 
     return ship, taken
 
