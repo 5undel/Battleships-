@@ -48,18 +48,19 @@ print("Begin with the number for the colum and then the number for row")
 def get_ship(long, taken):
     ok = True
     while ok:
-        ship = []
-        # ask the user to enter numbers for the ship placing
-        print("Enter your ship length of ", long)
-        for i in range(long):
-            boat_num = input("please enter a number between 0 and 99\n")
-            ship.append(int(boat_num))
-        # check that ship
-        ship = check_ok(ship, taken)
-        if ship[0] != - 1:
-            taken = taken + ship
-            break
-        else:
+        try:
+            ship = []
+            # ask the user to enter numbers for the ship placing
+            print("Enter your ship length of ", long)
+            for i in range(long):
+                boat_num = input("please enter a number between 0 and 99\n")
+                ship.append(int(boat_num))
+            # check that ship
+            ship = check_ok(ship, taken)
+            if ship[0] != - 1:
+                taken = taken + ship
+                break
+        except:
             print("Error - please try again")
 
     return ship, taken
