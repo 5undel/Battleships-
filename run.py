@@ -173,13 +173,14 @@ def show_board(hit, miss, comp):
             if place in miss:
                 ch = " x "
             elif place in hit:
-                ch = " 💥 "
+                ch = "💥 "
             elif place in comp:
-                ch = " 💀 "
+                ch = "💀 "
             row = row + ch
             place = place + 1
 
         print(x, " ", row)
+
 
 def check_shot(shot, ships, hit, miss, comp):
 

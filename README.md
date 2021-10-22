@@ -101,6 +101,5 @@ This [link](https://gitpod.io/#https://github.com/5undel/Battleships-) will do t
 
 ### Content 
 
-List all of the relevant sources you've used, including the Emojipedia for the icons for example.
 - [Emojipedia](https://emojipedia.org/) for the icons on the game
-- etc.
+
