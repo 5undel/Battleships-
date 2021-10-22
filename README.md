@@ -1,6 +1,6 @@
 # Battleship 
 
-Battleship is a is a strategy type guessing game.It is played on ruled grids board on which the user's fleet of ships are marked. The locations of the fleets are concealed from the computer. User and computer alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the computers fleet.
+Battleship is a is a strategy type guessing game. It is played on ruled grids board on which the user's fleet of ships are marked. The locations of the fleets are concealed from the computer. User and computer alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the computers fleet.
 
 ![image](doc/screens.png)
 
@@ -12,19 +12,18 @@ __ The Run Program Button  __
 
 Featured at the top of the page, 
 
-(screenshot of button)
+![image](doc/run-game-button.png)
 
 __ The Terminal Area  __
 
 
-
-(screenshot of terminal)
+![image](doc/heroku-run.png)
 
 __ The Program Structure __
 
-(screenshot of a workflow logic for the game)
+![image](doc/battleship.png)
 
-...and the other features on your project like the game-play functionality (with screenshots)...
+![image](doc/game-marker.png)
 
 ### Features Left to Implement
 
@@ -96,7 +95,9 @@ This [link](https://gitpod.io/#https://github.com/5undel/Battleships-) will do t
 
 ## Credits 
 
-Inspiration for the site was taken from … 
+- Python Try Except was taken from W3schools [here](https://www.w3schools.com/python/python_try_except.asp)
+
+- Python While Loops was taken from W3schools [here](https://www.w3schools.com/python/python_while_loops.asp)
 
 ### Content 
 

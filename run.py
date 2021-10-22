@@ -127,7 +127,6 @@ def show_board_c(taken):
     print(" ")
     print("        battleships    ")
     print("     0  1  2  3  4  5  6  7  8  9")
-
     place = 0
     for x in range(10):
         row = ""
@@ -163,9 +162,9 @@ def get_shot_comp(guesses, tactics):
 
 # game board
 def show_board(hit, miss, comp):
-    print("      battleships    ")
+    print(" ")
+    print(" User borad at top, Computer board at lower ")
     print("     0  1  2  3  4  5  6  7  8  9")
-
     place = 0
     for x in range(10):
         row = ""
@@ -181,7 +180,6 @@ def show_board(hit, miss, comp):
             place = place + 1
 
         print(x, " ", row)
-
 
 def check_shot(shot, ships, hit, miss, comp):
 
